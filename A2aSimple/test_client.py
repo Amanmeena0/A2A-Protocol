@@ -10,9 +10,15 @@ from a2a.types import (
     SendMessageRequest,
     TextPart,
 )
+import json
+from datetime import datetime
 
+
+
+
+# CHANGE THIS LINE: Use HTTP instead of HTTPS
 PUBLIC_AGENT_CARD_PATH = "/.well-known/agent.json"
-BASE_URL = "https://localhost:9999"
+BASE_URL = "http://localhost:9999"  # Changed from https:// to http://
 
 async def main() -> None:
     async with httpx.AsyncClient() as httpx_client:
@@ -44,7 +50,7 @@ async def main() -> None:
 
         message_payload = Message(
             role=Role.user,
-            messageID=str(uuid.uuid4()),
+            messageId=str(uuid.uuid4()),
             parts=[Part(root=TextPart(text="Hello, how are you?"))],
         )
         request = SendMessageRequest(
