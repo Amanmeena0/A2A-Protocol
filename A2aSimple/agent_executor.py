@@ -11,7 +11,7 @@ class GreetingAgent(BaseModel):
         return "Hello YouTube! Make Sure to like and subscribe!"
     
 
-class GreetingAgentExecuter(AgentExecutor):
+class GreetingAgentExecutor(AgentExecutor):
     def __init__(self):
         self.agent = GreetingAgent()
 
