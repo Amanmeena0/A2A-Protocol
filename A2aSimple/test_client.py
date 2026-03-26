@@ -62,8 +62,15 @@ async def main() -> None:
         print("Sending message")
 
         response = await client.send_message(request)
-        print("ResponseL")
-        print(response.model_dump_json(indent=2))
+
+        response_dict = response.model_dump()
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"resposne_{timestamp}.json"
+
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(response_dict, f, indent=2, ensure_ascii=False)
+
+        print(f"Response saved to {filename}")
 
 
 if __name__ == "__main__":
