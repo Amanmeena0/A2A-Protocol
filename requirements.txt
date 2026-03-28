@@ -6,3 +6,7 @@ nest_asyncio
 dotenv
 google-generativeai
 click 
+langgraph 
+langchain-core
+pydantic
+langchain-google-genai
